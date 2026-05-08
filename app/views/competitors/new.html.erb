@@ -1,0 +1,11 @@
+<div class="container" style="max-width: 600px;">
+  <h1 style="text-align: center; display: block; border: none;">New Competitor</h1>
+  
+  <div class="card">
+    <%= render "form", competitor: @competitor %>
+  </div>
+
+  <div style="text-align: center; margin-top: 1rem;">
+    <%= link_to "Back to competitors", competitors_path, class: "btn btn-secondary" %>
+  </div>
+</div>

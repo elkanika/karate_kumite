@@ -1,0 +1,26 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: karate_kumite_development
+  host: 127.0.0.1
+  username: postgres
+  password: password
+  port: 5432
+
+test:
+  <<: *default
+  database: karate_kumite_test
+  host: 127.0.0.1
+  username: postgres
+  password: password
+  port: 5432
+
+production:
+  <<: *default
+  database: karate_kumite_production
+  username: karate_kumite
+  password: <%= ENV["KARATE_KUMITE_DATABASE_PASSWORD"] %>

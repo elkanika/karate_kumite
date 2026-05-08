@@ -1,0 +1,41 @@
+<%= form_with(model: competitor, class: "contents") do |form| %>
+  <% if competitor.errors.any? %>
+    <div style="background-color: #ffebee; color: #b71c1c; padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem;">
+      <h3 style="margin-top: 0;"><%= pluralize(competitor.errors.count, "error") %> prohibited this competitor from being saved:</h3>
+      <ul style="margin-bottom: 0;">
+        <% competitor.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :first_name, class: "form-label" %>
+    <%= form.text_field :first_name, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :last_name, class: "form-label" %>
+    <%= form.text_field :last_name, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :age, class: "form-label" %>
+    <%= form.number_field :age, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :belt, class: "form-label" %>
+    <%= form.select :belt, Competitor::VALID_BELTS, { prompt: "Select Belt" }, { class: "form-control" } %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :dojo, class: "form-label" %>
+    <%= form.text_field :dojo, class: "form-control" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class: "btn btn-primary" %>
+  </div>
+<% end %>
